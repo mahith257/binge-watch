@@ -49,7 +49,7 @@
     font-size: 28px;
     display: flex;
     align-items: center;
-    justify-content: start;
+    justify-content: flex-start;
     font-family: 'Tw Cen MT', sans-serif;
     font-weight: normal;
     margin-bottom: 10px;

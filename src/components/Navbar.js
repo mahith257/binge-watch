@@ -1,21 +1,20 @@
 import './Navbar.css'
 import { Link} from 'react-router-dom'
-import { useEffect } from 'react'
 
 
 export default function Navbar() {
 
-  let url = window.location.href;
-  let lastIndex = url.lastIndexOf('/')
-  // let endPoint = url.slice(lastIndex+1)
-  // console.log(endPoint)
-  // const lastIndex = url.lastIndexOf('/')
-  // const endPoint = url.slice(lastIndex+1)
-  // console.log(endPoint)
+//   let url = window.location.href;
+//   let lastIndex = url.lastIndexOf('/')
+//   // let endPoint = url.slice(lastIndex+1)
+//   // console.log(endPoint)
+//   // const lastIndex = url.lastIndexOf('/')
+//   // const endPoint = url.slice(lastIndex+1)
+//   // console.log(endPoint)
 
-  useEffect(() => {
-    console.log(url)
-  }, [url])
+//   useEffect(() => {
+//     console.log(url)
+//   }, [url])
 
     return (
         <div className='navbar'>
