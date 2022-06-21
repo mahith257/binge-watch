@@ -1,0 +1,42 @@
+.card {
+    display: flex;
+    flex-direction: column;
+    width: 200px;
+    background-color: #E4D85F;
+    margin: 10px 0;
+    padding: 5px;
+    border-radius: 10px;
+    position: relative;
+    /* font-family: 'Lato'; */
+    height: 370px;
+}
+
+.poster {
+    border-radius: 10px;
+    margin: 2px;
+}
+
+
+.card :hover {
+    background-color: white;
+    color: black;
+    cursor: pointer;
+}
+
+.title {
+    /* text-align: center; */
+    margin: 4px;
+    font-size: 17px;
+    /* letter-spacing: 1px; */
+    font-family: 'Tw Cen MT', sans-serif;
+    font-weight: normal;
+}
+
+.sub-title {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin: 5px;
+    font-family: 'Tw Cen MT Condensed', sans-serif;
+    font-size: 16px;
+}

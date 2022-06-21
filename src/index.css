@@ -1,0 +1,19 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato:wght@300&display=swap');
+@import "react-alice-carousel/lib/alice-carousel.css";
+@import url('http://fonts.cdnfonts.com/css/agency-fb');
+@import url('http://fonts.cdnfonts.com/css/tw-cen-mt-condensed');
+@import url('http://fonts.cdnfonts.com/css/tw-cen-mt');
+
+body {
+  margin: 0;
+  font-family: 'Agency FB', sans-serif, 'Tw Cen MT Condensed', 'Tw Cen MT';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #F5F5F5;
+  color: black;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
