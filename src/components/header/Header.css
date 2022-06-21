@@ -31,3 +31,25 @@
 .icons {
     margin-right: 30px;
 }
+
+@media (max-width: 580px) {
+    .brand-logo{
+        margin-left: 5px;
+    }
+
+    .brand {
+        margin-left: 5px;
+        visibility: hidden;
+        position: relative;
+    }
+
+    .brand:after{
+        visibility: visible;
+        content: 'binge';
+        position: absolute;
+        left: 0;
+        top: 23%;
+        pointer-events: none;
+    }
+
+}

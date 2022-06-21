@@ -19,16 +19,19 @@ export default function Navbar() {
     return (
         <div className='navbar'>
             <nav>
-                <Link to="/" id='trending' >
+                <Link to="/" className = 'trending' >
                     Trending
                 </Link>
-                <Link to="/movies">
+                <Link to="/movies" className = 'movies'>
                     Movies
                 </Link>
-                <Link to="/series">
+                <Link to="/series" className = 'tvseries'>
                     TV Series
                 </Link>
-                <Link to="/search">
+                <Link to="/series" className = 'series'>
+                    Series
+                </Link>
+                <Link to="/search" className = 'search'>
                     Search
                 </Link>
             </nav>
