@@ -1,5 +1,5 @@
 import TextField from '@mui/material/TextField';
-import { ThemeProvider, createTheme } from '@mui/material/styles';
+import { createTheme } from '@mui/material/styles';
 import { Button } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import Tabs from '@mui/material/Tabs';
@@ -18,14 +18,14 @@ export default function Search() {
     const [content, setContent] = useState([])
     const [numOfPages, setNumOfPages] = useState();
  
-    const darkTheme = createTheme({
-        palette: {
-            mode: 'dark',
-            primary: {
-                main: '#fff'
-            }
-        }
-    })
+    // const darkTheme = createTheme({
+    //     palette: {
+    //         mode: 'dark',
+    //         primary: {
+    //             main: '#fff'
+    //         }
+    //     }
+    // })
 
     const fetchSearch = async () => {
         try{
