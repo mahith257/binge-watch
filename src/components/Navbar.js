@@ -133,7 +133,6 @@ import Tab from '@mui/material/Tab';
 import { useEffect } from 'react';
 import { useHistory } from 'react-router-dom';
 import { createTheme, ThemeProvider } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
 
 function LinkTab(props) {
   return (
