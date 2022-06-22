@@ -182,12 +182,12 @@ export default function NavTabs() {
   return (
     <ThemeProvider theme={theme}>
     <Box className = 'navBox'>
-      <Tabs value={value} onChange={handleChange}>
-        <LinkTab label="Trending" sx= {{color: 'black', minWidth: 5}} className = 'nav-label'/>
-        <LinkTab label="Movies" sx= {{color: 'black', minWidth: 5}} className = 'nav-label'/>
-        <LinkTab label="TV Series" sx= {{color: 'black', minWidth: 5}} className = 'tvseries'/>
+      <Tabs value={value} sx = {{minWidth: 360}} onChange={handleChange}>
+        <LinkTab label="Trending" sx= {{color: 'black', minWidth: 50}} className = 'nav-label'/>
+        <LinkTab label="Movies" sx= {{color: 'black', minWidth: 50}} className = 'nav-label'/>
+        <LinkTab label="TV Series" sx= {{color: 'black', minWidth: 50}} className = 'tvseries'/>
         {/* <LinkTab label="Series" sx= {{color: 'black', minWidth: 5, display: 'none'}} className = 'series'/> */}
-        <LinkTab label="Search" sx= {{color: 'black', minWidth: 5}} className = 'nav-label'/>
+        <LinkTab label="Search" sx= {{color: 'black', minWidth: 50}} className = 'nav-label'/>
       </Tabs>
     </Box>
     </ThemeProvider>

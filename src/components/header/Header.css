@@ -32,13 +32,14 @@
     margin-right: 30px;
 }
 
-@media (max-width: 580px) {
+@media (max-width: 530px) {
+
     .brand-logo{
-        margin-left: 1px;
+        margin-left: -1px;
     }
 
     .brand {
-        margin-left: -1px;
+        margin-left: -3px;
         visibility: hidden;
         position: relative;
         margin-right: 0px;
@@ -54,8 +55,16 @@
     }
 
     .icons {
-        margin: auto -3px;
-        padding-right: 10px;
+        margin-right: 0px;
+        margin-left: 5px;
+        padding-right: 0;
+        margin-top: -1px;
     }
 
+}
+
+@media (max-width: 390px) {
+    .icons {
+        margin-left: -15px;
+    }
 }
