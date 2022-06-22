@@ -34,13 +34,14 @@
 
 @media (max-width: 580px) {
     .brand-logo{
-        margin-left: 5px;
+        margin-left: 1px;
     }
 
     .brand {
-        margin-left: 5px;
+        margin-left: -1px;
         visibility: hidden;
         position: relative;
+        margin-right: 0px;
     }
 
     .brand:after{
@@ -50,6 +51,11 @@
         left: 0;
         top: 23%;
         pointer-events: none;
+    }
+
+    .icons {
+        margin: auto -3px;
+        padding-right: 10px;
     }
 
 }

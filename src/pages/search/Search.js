@@ -1,5 +1,5 @@
 import TextField from '@mui/material/TextField';
-import { Button } from '@mui/material';
+import { Button, createTheme, ThemeProvider } from '@mui/material';
 import SearchIcon from '@mui/icons-material/Search';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
@@ -26,6 +26,18 @@ export default function Search() {
     //     }
     // })
 
+    const theme = createTheme({
+        palette: {
+            primary: {
+                main: '#E4D85F'
+            },
+        },
+
+        typography: {
+            fontFamily: ['Agency FB', 'sans-serif'].join(',')
+        }
+    })
+
     const fetchSearch = async () => {
         try{
             const { data } = await axios.get(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`)
@@ -45,7 +57,7 @@ export default function Search() {
 
     return (
       <div>
-        {/* <ThemeProvider theme={darkTheme} > */}
+        <ThemeProvider theme={theme} >
             <div>
                 <form onSubmit={(e) => {e.preventDefault(); fetchSearch()}} className='search' style={{marginTop: '100px'}}>
                     <TextField id="filled-basic" label="Search" variant="filled" fullWidth onChange={(e) => setSearchText(e.target.value)}/>
@@ -56,7 +68,7 @@ export default function Search() {
                 <Tab label="Search Movies"  />
                 <Tab label="Search TV Series" />
             </Tabs>
-        {/* </ThemeProvider> */}
+        </ThemeProvider>
         <div className="search-content">
         {content &&
           content.map((single) => (
