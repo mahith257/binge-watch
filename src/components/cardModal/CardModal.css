@@ -11,8 +11,8 @@
 
 .close-icon {
     position: absolute;
-    top: 0px;
-    right: 0px;
+    top: -5px;
+    right: -5px;
 }
 
 .close-icon :hover {
