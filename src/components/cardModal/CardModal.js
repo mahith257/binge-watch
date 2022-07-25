@@ -5,6 +5,7 @@ import Fade from '@mui/material/Fade';
 // import Button from '@mui/material/Button';
 import YouTubeIcon from '@mui/icons-material/YouTube';
 import axios from 'axios';
+import CloseIcon from '@mui/icons-material/Close';
 
 import './CardModal.css'
 import { useState} from 'react';
@@ -42,7 +43,7 @@ export default function CardModal({children, type, id}) {
 
   const fetchContent = async () => {
     const { data } = await axios.get(`https://api.themoviedb.org/3/${type}/${id}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
-    console.log(data);
+    // console.log(data);
     setContent(data)
   }
 
@@ -53,8 +54,8 @@ export default function CardModal({children, type, id}) {
 
 
   return (
-    <div>
-      <div className='card' onClick={handleOpen} style = {{cursor: 'pointer'}}>
+    <>
+      <div onClick={handleOpen} style = {{cursor: 'pointer'}} className='card'>
         {children} 
       </div>
 
@@ -97,6 +98,7 @@ export default function CardModal({children, type, id}) {
                     ).substring(0, 4)}
                     )
                   </span>
+                  <span className='close-icon' onClick={handleClose}><CloseIcon /></span>
 
                   {content.tagline && (
                     <i className="tagline">{content.tagline}</i>
@@ -126,6 +128,6 @@ export default function CardModal({children, type, id}) {
           </Box>
         </Fade>
       </Modal>
-    </div>
+    </>
   );
 }

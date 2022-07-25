@@ -40,10 +40,13 @@ export default function Search() {
 
     const fetchSearch = async () => {
         try{
-            const { data } = await axios.get(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`)
-            setContent(data.results)
-            console.log(data)
-            setNumOfPages(data.total_pages)
+            setContent([])
+            if(searchText){
+                const { data } = await axios.get(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${searchText}&page=${page}&include_adult=false`)
+                setContent(data.results)
+                // console.log(data)
+                setNumOfPages(data.total_pages)
+            }
         }catch(error){
             console.log(error)
         }
@@ -51,16 +54,16 @@ export default function Search() {
 
     useEffect(() => {
         window.scroll(0,0)
-        searchText && fetchSearch()
+        fetchSearch()
         // eslint-disable-next-line
-    }, [type, page])
+    }, [type, page, searchText])
 
     return (
       <div>
         <ThemeProvider theme={theme} >
             <div>
                 <form onSubmit={(e) => {e.preventDefault(); fetchSearch()}} className='search' style={{marginTop: '100px'}}>
-                    <TextField id="filled-basic" label="Search" variant="filled" fullWidth onChange={(e) => setSearchText(e.target.value)}/>
+                    <TextField id="filled-basic" label="Search" variant="filled" fullWidth onChange={(e) => setSearchText(e.target.value)} value = {searchText} />
                     <Button variant='contained' style={{marginLeft: '20px'}} onClick = {fetchSearch}><SearchIcon /></Button>
                 </form>
             </div>
@@ -74,9 +77,9 @@ export default function Search() {
           content.map((single) => (
             <SingleComponent single = {single} key = {single.id} media_type = {type ? "TV Series" : "Movie"}/>
           ))}
-        {content.length === 0 && (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)}
+        {(content.length === 0) && (type ? <h2>No Series Found</h2> : <h2>No Movies Found</h2>)}
         </div>
-        {numOfPages > 0 &&
+        {(numOfPages > 0 && searchText !== '') &&
           <CustomPagination setPage = {setPage} page = {page} numOfPages = {numOfPages >= 500 ? 500 : numOfPages}/>
         }
     </div>

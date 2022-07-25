@@ -1,5 +1,3 @@
-
-
 .card-modal {
     display: flex;
     flex-direction: column;
@@ -8,6 +6,23 @@
     width: 100%;
     overflow-y: scroll;
     scrollbar-width: none;
+    position: relative;
+}
+
+.close-icon {
+    position: absolute;
+    top: 0px;
+    right: 0px;
+}
+
+.close-icon :hover {
+    cursor: pointer;
+}
+
+.card:hover {
+    background-color: white;
+    color: black;
+    transform: scale(1.05);
 }
 
 .card-modal::-webkit-scrollbar {
@@ -119,5 +134,17 @@
 
     .modal-description {
         font-size: 20px;
+    }
+}
+
+@media(max-width: 835px) {
+    .close-icon {
+        display: none;
+    }
+}
+
+@media(min-width: 835px) and (max-width: 1150px) {
+    .modal-title {
+        font-size: 25px;
     }
 }

@@ -39,7 +39,7 @@ export const Carousel = ({media_type, id}) => {
     const fetchCast = async () => {
         const {data} = await axios.get(`https://api.themoviedb.org/3/${media_type}/${id}/credits?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
         setCast(data.cast)
-        console.log(data.cast)
+        // console.log(data.cast)
     }
 
     useEffect(() => {

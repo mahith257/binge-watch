@@ -48,9 +48,9 @@ export default function Genres({type, selectedGenres,setSelectedGenres, genres, 
                     clickable
                     label = {genre.name}
                     key = {genre.id}
-                    style={{margin: '6px', backgroundColor: 'white'}}
+                    style={{margin: '6px', backgroundColor: '#E4D85F', fontFamily: "'Tw Cen MT', sans-serif"}}
                     onClick = {() => handleAdd(genre)}
-                    size = 'small'
+                    size = 'medium'
                 />
             ))}
         </div>
