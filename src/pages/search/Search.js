@@ -1,6 +1,5 @@
 import TextField from '@mui/material/TextField';
-import { Button, createTheme, ThemeProvider } from '@mui/material';
-import SearchIcon from '@mui/icons-material/Search';
+import { createTheme, ThemeProvider } from '@mui/material';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import './Search.css'
