@@ -1,6 +1,6 @@
 import './App.css';
 import Header from './components/header/Header';
-import {BrowserRouter, Switch, Route} from 'react-router-dom'
+import {BrowserRouter, Switch, Route } from 'react-router-dom'
 import { Container } from '@mui/material';
 import Trending from './pages/trending/Trending';
 import Movies from './pages/movies/Movies';

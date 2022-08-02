@@ -5,7 +5,7 @@ import { Chip } from "@mui/material"
 export default function Genres({type, selectedGenres,setSelectedGenres, genres, setGenres, setPage}) {
     const fetchGenres = async () => {
         const {data} = await axios.get(`https://api.themoviedb.org/3/genre/${type}/list?api_key=${process.env.REACT_APP_API_KEY}&language=en-US`)
-        console.log(data)
+        // console.log(data)
         setGenres(data.genres)
         setPage(1)
     }

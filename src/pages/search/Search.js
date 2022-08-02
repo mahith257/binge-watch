@@ -4,7 +4,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import Tabs from '@mui/material/Tabs';
 import Tab from '@mui/material/Tab';
 import './Search.css'
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import SingleComponent from '../../components/singleComponent/SingleComponent';
 import CustomPagination from '../../components/pagination/CustomPagination';
 import axios from "axios"
@@ -46,25 +46,54 @@ export default function Search() {
                 setContent(data.results)
                 // console.log(data)
                 setNumOfPages(data.total_pages)
+                console.log('fetched')
             }
         }catch(error){
             console.log(error)
         }
     }
 
+    const handleChange2 = (text) => {
+        setContent([])
+        if(text !== ''){
+            axios.get(`https://api.themoviedb.org/3/search/${type ? "tv" : "movie"}?api_key=${process.env.REACT_APP_API_KEY}&language=en-US&query=${text}&page=${page}&include_adult=false`)
+                .then((res) => {setContent(res.data.results); setNumOfPages(res.data.total_pages)})
+            console.log("saved")
+        }
+      };
+
+    const debounce = (func) => {
+        let timer;
+        return function (...args) {
+          const context = this;
+          if (timer) clearTimeout(timer);
+          timer = setTimeout(() => {
+            timer = null;
+            func.apply(context, args);
+          }, 300);
+        };
+    };
+
+    // eslint-disable-next-line
+    const optimizedFunc = useCallback(debounce(handleChange2), [])
+    
+    const handleChange = (e) => {
+        setSearchText(e.target.value)
+        optimizedFunc(e.target.value)
+    }
+
     useEffect(() => {
         window.scroll(0,0)
         fetchSearch()
         // eslint-disable-next-line
-    }, [type, page, searchText])
+    }, [type, page])
 
     return (
       <div>
         <ThemeProvider theme={theme} >
             <div>
-                <form onSubmit={(e) => {e.preventDefault(); fetchSearch()}} className='search' style={{marginTop: '100px'}}>
-                    <TextField id="filled-basic" label="Search" variant="filled" fullWidth onChange={(e) => setSearchText(e.target.value)} value = {searchText} />
-                    <Button variant='contained' style={{marginLeft: '20px'}} onClick = {fetchSearch}><SearchIcon /></Button>
+                <form onSubmit={(e) => {e.preventDefault()}} className='search' style={{marginTop: '100px'}}>
+                    <TextField id="filled-basic" label="Search" variant="filled" fullWidth onChange={handleChange} value = {searchText} />
                 </form>
             </div>
             <Tabs value={type} variant = 'fullWidth' indicatorColor='primary' onChange = {(event, newValue) => {setType(newValue); setPage(1)}}>
